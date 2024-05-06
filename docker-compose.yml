@@ -45,6 +45,15 @@ services:
     networks:
       - diego-network
 
+  redis:
+    image: redis
+    container_name: nest-auth-redis
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - diego-network
+
 networks:
   diego-network:
     external:
