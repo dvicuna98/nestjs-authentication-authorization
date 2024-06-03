@@ -10,8 +10,11 @@ export class User {
     @Column({ unique: true })
     email: string;
 
-    @Column()
+    @Column({nullable: true})
     password: string;
+
+    @Column({nullable: true})
+    googleId: string;
 
     @Column({ enum: Role, default: Role.Regular })
     role: Role;
