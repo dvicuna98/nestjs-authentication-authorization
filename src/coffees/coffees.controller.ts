@@ -6,11 +6,12 @@ import {ActiveUser} from '../iam/decorators/active-user.decorator';
 import {ActiveUserData} from '../iam/interfaces/active-user-data.interface';
 import {Roles} from "../iam/authorization/decorators/roles.decorator";
 import {Role} from "../users/enums/role.enum";
-import {Permissions} from "../iam/authorization/decorators/permissions.decorator";
-import {Permission} from "../iam/authorization/permission.type";
 import {FrameworkContributorPolicy} from "../iam/authorization/policies/framework-contributor.policy";
 import {Policies} from "../iam/authorization/decorators/policies.decorator";
+import {Auth} from "../iam/authentication/decorators/auth.decorator";
+import {AuthType} from "../iam/authentication/enums/auth-type.enum";
 
+@Auth(AuthType.ApiKey, AuthType.Bearer)
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
