@@ -29,4 +29,10 @@ export class User {
     @JoinTable() // 👈
     @OneToMany((type) => ApiKey, (apiKey) => apiKey.user)
     apiKeys: ApiKey[];
+
+    @Column({ default: false })
+    isTfaEnabled: boolean;
+
+    @Column({ nullable: true })
+    tfaSecret: string;
 }
